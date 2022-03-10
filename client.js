@@ -1794,9 +1794,21 @@ class Viewport {
     const bgfolder = viewport.bgFolder;
 
     const view = document.getElementById('client_fullview');
-    const bench = document.getElementById('client_bench_classic');
-    const court = document.getElementById('client_court_classic');
-
+    
+    let bench;
+    if ('def,pro,wit'.includes(position)) {
+    	bench = document.getElementById('client_'+position+'_bench');
+    } else {
+    	bench = document.getElementById('client_bench_classic');
+    }
+    
+    let court;
+    if ('def,pro,wit'.includes(position)) {
+    	court = document.getElementById('client_court_'+position);
+    } else {
+    	court = document.getElementById('client_court_classic');
+    }
+    
     const positions = {
       def: {
         bg: 'defenseempty.png',
@@ -1804,7 +1816,7 @@ class Viewport {
         speedLines: 'defense_speedlines.gif',
       },
       pro: {
-        bg: 'prosecutionempty.png',
+        bg: 'prosecutorempty.png',
         desk: { ao2: 'prosecutiondesk.png', ao1: 'bancoacusacion.png' },
         speedLines: 'prosecution_speedlines.gif',
       },
@@ -1855,6 +1867,7 @@ class Viewport {
     }
 
     if (viewport.chatmsg.type === 5) {
+      console.warn("this is a zoom");
       court.src = `${AO_HOST}themes/default/${encodeURI(speedLines)}`;
       bench.style.opacity = 0;
     } else {
@@ -1869,7 +1882,6 @@ class Viewport {
     }
 
     if ('def,pro,wit'.includes(position)) {
-      document.getElementById(`client_${position}_bench`).style.display = 'none';
       view.style.display = '';
       document.getElementById('client_classicview').style.display = 'none';
       switch (position) {
@@ -1884,7 +1896,6 @@ class Viewport {
           break;
       }
     } else {
-      bench.style.display = '';
       view.style.display = 'none';
       document.getElementById('client_classicview').style.display = '';
     }
@@ -2228,7 +2239,7 @@ class Viewport {
     // apply effects
     fg.style.animation = '';
 
-    if (this.chatmsg.effects[0] && this.chatmsg.effects[0] !== '-') { fg.src = `${AO_HOST}themes/default/effects/${encodeURI(this.chatmsg.effects[0].toLowerCase())}.webp`; } else { fg.src = transparentPNG; }
+    if (this.chatmsg.effects[0] && this.chatmsg.effects[0] !== '-' && this.chatmsg.effects[0].toLowerCase() !== 'none' ) { fg.src = `${AO_HOST}themes/default/effects/${encodeURI(this.chatmsg.effects[0].toLowerCase())}.webp`; } else { fg.src = transparentPNG; }
 
     if (this.chatmsg.sound === '0' || this.chatmsg.sound === '1' || this.chatmsg.sound === '' || this.chatmsg.sound === undefined) { this.chatmsg.sound = this.chatmsg.effects[2]; }
 
