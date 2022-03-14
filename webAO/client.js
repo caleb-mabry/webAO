@@ -3,6 +3,15 @@
  * made by sD, refactored by oldmud0 and Qubrick
  * credits to aleks for original idea and source
 */
+import LogRocket from 'logrocket';
+LogRocket.init('yh2xu7/webao');
+LogRocket.identify('Caleb', {
+  name: 'Caleb',
+  email: 'Caleb@mabry.dev',
+
+  // Add your own custom user variables here, ie:
+  // subscriptionType: 'pro'
+});
 
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { EventEmitter } from 'events';
@@ -30,6 +39,7 @@ import getAnimLength from './utils/getAnimLength.js';
 import getResources from './utils/getResources.js';
 
 const version = process.env.npm_package_version;
+
 
 let client;
 let viewport;
