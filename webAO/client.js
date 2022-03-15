@@ -77,7 +77,7 @@ fpPromise
     hdid = result.visitorId;
     LogRocket.identify(hdid, {
       name: hdid,
-      server: ip,
+      server: serverIP,
     });
     client = new Client(serverIP);
     viewport = new Viewport();
