@@ -5,13 +5,8 @@
 */
 import LogRocket from 'logrocket';
 LogRocket.init('yh2xu7/webao');
-LogRocket.identify('Caleb', {
-  name: 'Caleb',
-  email: 'Caleb@mabry.dev',
 
-  // Add your own custom user variables here, ie:
-  // subscriptionType: 'pro'
-});
+
 
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import { EventEmitter } from 'events';
@@ -80,6 +75,10 @@ fpPromise
   .then((fp) => fp.get())
   .then((result) => {
     hdid = result.visitorId;
+    LogRocket.identify(hdid, {
+      name: hdid,
+      server: ip,
+    });
     client = new Client(serverIP);
     viewport = new Viewport();
 
