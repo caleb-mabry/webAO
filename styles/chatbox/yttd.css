@@ -38,7 +38,7 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	height: 50%;
+	height: 41%;
 	width: 100%;
 	filter: none;
 	font-family: "DejaVu Sans Mono", "BIZ UDGothic", "Consolas", sans-serif;
@@ -50,18 +50,19 @@
 	position: absolute;
 	top: 0;
 	left: 0;	
-	height: 27%;
-	height: calc(30% - 6px);
+	height: 30%;
 	min-width: 10%;
-	background-color: rgba(0, 0, 0, 0.5);	
-    border-style: double;
-	border-color: #ffa500;
+	background-color: rgba(0, 0, 0, 0.6);	
+	border-image-source: url("yttd.png");
+    border-image-slice: 20;
+	border-image-width: 20px;
+	border-width: 20px;
 	padding: 0 2%;
 	z-index: 1;
 }
 
 #client_inner_name {
-	line-height: 1em;
+	line-height: 0.6em;
 	color: #fef9ad;
 }
 
@@ -69,14 +70,14 @@
 	display: block;
 	position: absolute;
 	bottom: 0;
-	width: 99%;
-	width: calc(100% - 6px);
+	width: 99.9%;
 	margin: auto;
 	height: 70%;
-	height: calc(70% - 6px);
-	border-style: double;
-    border-color: #ffa500;
-	background-color: rgba(0, 0, 0, 0.5);
+	border-image-source: url("yttd.png");
+    border-image-slice: 20;
+	border-image-width: 20px;
+	border-width: 20px;
+	background-color: rgba(0, 0, 0, 0.6);
 	overflow-wrap: break-word;
 	text-align: left;
 	overflow: hidden;
@@ -92,7 +93,7 @@
 #client_chatwaiting {
 	display: block;
 	position: absolute;
-	transform: rotate(90deg);
+	transform: rotate(90deg) scale(1, 2);
 	left: 50%;
 	bottom: 0px;	
 	line-height: 0.5;
