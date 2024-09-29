@@ -2,29 +2,28 @@ body {
 	font-family: sans-serif;
 }
 
+@media (max-height: 270x) {
+	img {
+		image-rendering: crisp-edges;
+		image-rendering: pixelated;
+	}
+
+}
+
 img {
+	image-rendering: auto;
+}
+
+img[src$=".gif"],
+img[src$=".apng"] {
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
 }
 
+
 .client_button {
 	margin: 1px;
 	padding: 2px 15px;
-	cursor: pointer;
-	text-align: center;
-	font-weight: bold;
-	color: white;
-	background-color: #7b2900;
-	border-radius: 3px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #fff;
-	box-shadow: 1px 1px inset;
-}
-
-.objection_button {
-	margin: 1px;
-	padding: 7px 15px;
 	cursor: pointer;
 	text-align: center;
 	font-weight: bold;
